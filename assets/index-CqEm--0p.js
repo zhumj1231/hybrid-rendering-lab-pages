@@ -3862,7 +3862,7 @@ const float PI=3.14159265;
 uniform vec3 uCamera,uSunDir,uSunColor,uSky,uGround;
 uniform float uCloudTime,uClouds;
 float cloudDensity(vec2 p){float f=sin(p.x*.13+uCloudTime*.035)*sin(p.y*.11-uCloudTime*.022)+.35*sin(p.x*.29+p.y*.17+uCloudTime*.043);return smoothstep(-.15,.65,f);}
-float cloudShade(vec3 p){return mix(1.,1.-.30*cloudDensity(p.xz-p.y*uSunDir.xz/max(uSunDir.y,.15)),uClouds);}
+float cloudShade(vec3 p){return mix(1.,1.-.30*cloudDensity(p.xz+(24.-p.y)*uSunDir.xz/max(uSunDir.y,.15)),uClouds);}
 uniform vec3 uLightPos[8],uLightColor[8];
 uniform float uLightPower[8],uLightRadius[8];
 uniform sampler2D uShadow; uniform mat4 uLightVP;
