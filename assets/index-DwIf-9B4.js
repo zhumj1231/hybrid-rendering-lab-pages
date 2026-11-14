@@ -4192,10 +4192,8 @@ Surface evaluateSurface(vec3 p,vec3 world,vec3 n,vec3 baseColor,float baseMetal,
  if(uComplex<.5)return s;
  if(uComplex<1.5){s.color=vec3(.83,.61,.25);s.metal=1.;s.rough=.18;}
  else if(uComplex<2.5){
-  // One quiet, low-contrast mineral vein, never tiled or spot-shaped.
-  float line=p.x+.32*p.y+.06*sin(p.z*2.)-.15;
-  float vein=exp(-pow(line/.045,2.));
-  s.color=vec3(.77,.80,.79)-vec3(.10,.10,.09)*vein;s.metal=0.;s.rough=.30;
+  // Unveined white stone: no seam-like stripe or procedural organic pattern.
+  s.color=vec3(.77,.80,.79);s.metal=0.;s.rough=.30;
  }
  else if(uComplex<3.5){s.color=vec3(.04,.24,.55);s.metal=0.;s.rough=.26;}
  else{s.color=vec3(.54,.58,.62);s.metal=1.;s.rough=.60;}
